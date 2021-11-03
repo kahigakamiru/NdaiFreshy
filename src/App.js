@@ -14,13 +14,13 @@ function App() {
     <>
     <Header />
     <Switch>
-       <Route exact path="/" component={Home}></Route> 
+       <Route exact path="/" component={Home} exact></Route> 
        <Route exact path="/products" component={Product}></Route>
        <Route exact path="/products/:id" component={ProductDetail}></Route>
        <Route exact path="/cart" component={Cart}></Route>
        <Route exact path="/about" component={About}></Route> 
        <Route exact path="/contact" component={Contact}/>
-       <Redirect to="/" />
+       {/* <Redirect to="/" /> */}
        <Route path="/search/:inputValue" exact>
          <Search/>
        </Route>
