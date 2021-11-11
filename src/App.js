@@ -8,7 +8,9 @@ import About from './components/About';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 import Search from "./components/Search";
+
 function App() {
   return (
     <>
@@ -20,6 +22,7 @@ function App() {
        <Route exact path="/cart" component={Cart}></Route>
        <Route exact path="/about" component={About}></Route> 
        <Route exact path="/contact" component={Contact}/>
+       <Route exact path="/checkout" component={Checkout}/>
        {/* <Redirect to="/" /> */}
        <Route path="/search/:inputValue" exact>
          <Search/>

@@ -18,7 +18,7 @@ const ProductDetail = () => {
     const handleCart = (product) => {
         
             dispatch(addItem(product))
-            console.log(itemsInTheCart);
+            // console.log(itemsInTheCart);
             // if (cartBtn === "Add to Cart"){
             //     dispatch(addItem(product))
             //     setCartBtn("Add to Cart")

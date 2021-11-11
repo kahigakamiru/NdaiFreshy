@@ -7,7 +7,7 @@ export const addItem = (product) => {
 
 export const delItem = (product) => {
     return {
-        type : "DELTEM",
+        type : "DELITEM",
         payload : product
     }
 }

@@ -8,8 +8,8 @@ const Cart = () => {
     const state = useSelector((state)=> state.addItem)
     const dispatch = useDispatch()
      
-    const handleClose = (item) => {
-        dispatch(delItem(item))
+    const handleClose = (items) => {
+        dispatch(delItem(items))
     }
     const cartItems = (cartItem) => {
         return(
