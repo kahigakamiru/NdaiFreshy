@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState}from 'react'
 import Product from './Product'
 import { useSelector } from 'react-redux'
+
 let grandTotal = 0;
+
 const Checkout = () => {
   
     const state = useSelector (state => state.addItem)
-    console.log(state)
+    const [grandTotal, setgrandTotal] = useState(0)
   
     return (
         <div>
@@ -20,31 +22,41 @@ const Checkout = () => {
   </thead>
   <tbody>
     {state.map(item => <tr>
-      <th scope="col">{item.title}</th>
-      <th scope="col">{item.quantity}</th>
-      <th scope="col">{item.price}</th>
-      <th scope="col">{getTotal(item.quantity, item.price)}</th>
-    </tr>)}
+      
+      <td scope="col">{item.title}</td>
+      <td scope="col">{item.quantity}</td>
+      <td scope="col">{item.price}</td>
+      <td scope="col">{getTotal(item.quantity, item.price)}</td>
+      
+      </tr>
+      )
+    }
   
   </tbody>
 </table>
-{grandTotal}
+<h4>Grand Total is : {!GetGrandtotal()? "": GetGrandtotal()}</h4>
         </div>
     )
 }
 
 export default Checkout
 
+function GetGrandtotal() {
+  const state = useSelector(state => state.addItem)
+  let grandTotal = 0;
+  state.map(item=> {
+    grandTotal += getTotal(item.quantity, item.price)
+  })
+  return grandTotal
+}
 
 function getTotal(quantity, price){
   let total = 0;
   let discount = 0.05;
   if( quantity > 5) {
-       total = (price * discount * quantity);
+       total = ((price * quantity)-(quantity* discount));
   }else{
     total = price * quantity
   }
-
-grandTotal+=total;
-  return `$${total}`;
+  return total;
 }
