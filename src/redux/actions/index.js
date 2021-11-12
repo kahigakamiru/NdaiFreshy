@@ -18,3 +18,10 @@ export const searchItem = (input) =>{
         payload: input
     }
 }
+
+export const minusItem = (product) => {
+    return {
+        type: "MINUSITEM",
+        payload: product
+    }
+}

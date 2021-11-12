@@ -23,7 +23,16 @@
          return state.filter((x) => {
              return x.id !== action.payload.id
          })
-        
+          
+         case "MINUSITEM" :
+                return state.map(item => {
+                    if(item.id == action.payload){
+                        item.quantity = item.quantity-1;
+                    }
+                    return item;
+                });
+            
+            
 
          default: return state;
          
